@@ -1,0 +1,24 @@
+<h1>
+  Upload an image of a corn leaf, see if it has corn rust!
+</h1>
+<h2>
+  using tensorflow image recognition
+</h2>
+<br>
+<img *ngIf="imageUploaded"  [src]="url"  width="640" />
+<div></div>
+<button *ngIf="showCheckButton"  class = "md-button" type="button" (click)="onUpload(this)">Check for Rust</button>
+<h3 *ngIf="showResults">{{result}}</h3>
+<div *ngIf="showResults"> {{dataText}} </div>
+<div></div>
+<br>
+<div *ngIf="showValidate">Is this result correct?</div>
+<button type="button" class = "md-button" *ngIf="showValidate" (click)="isCorrect()">Yes</button>
+<button type="button" class = "md-button" *ngIf="showValidate" (click)="notCorrect()">No</button>
+<h3 *ngIf="invalidClassification">Result Submitted as Incorrect</h3>
+<h3 *ngIf="validClassification">Result Validated</h3>
+<br *ngIf="showResults">
+<br *ngIf="showResults">
+<label *ngIf="showUpload" for="file-upload" class="file-upload-stylized">Upload New File
+</label>
+<input *ngIf="showUpload" id="file-upload" type="file"  (change)="onFileChanged($event)" />
